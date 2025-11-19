@@ -15,6 +15,9 @@ export default defineConfig({
     // Disable the dev overlay to avoid duplicate custom-element registration from the overlay bundle
     hmr: {
       overlay: false,
+      // Ensure HMR works in HTTPS reverse-proxy previews
+      protocol: 'wss',
+      clientPort: 443,
     },
     // Enable file watching so external previews update correctly
     watch: {
