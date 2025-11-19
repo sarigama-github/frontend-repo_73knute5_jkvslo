@@ -1,10 +1,10 @@
-import Background from './components/Background'
+import CodingBackground from './components/CodingBackground'
 import Hero from './components/Hero'
+import CodeShowcase from './components/CodeShowcase'
 import { PromiseSection, HowItWorks, FeatureGrid, SocialProof, Pricing, FinalCTA } from './components/Sections'
 import { useEffect, useState } from 'react'
 
 const neonMint = '#52FFC1'
-const softBlue = '#4EA8FF'
 
 export default function App() {
   const [scrolled, setScrolled] = useState(false)
@@ -15,11 +15,11 @@ export default function App() {
   }, [])
 
   return (
-    <div className="min-h-screen bg-white text-slate-900 dark:bg-slate-950 dark:text-white">
-      <Background />
+    <div className="min-h-screen bg-[#0b1220] text-slate-200">
+      <CodingBackground />
 
       {/* Sticky header with hide/reveal */}
-      <header className={`sticky top-0 z-50 transition-all ${scrolled ? 'backdrop-blur-lg bg-white/70 dark:bg-slate-900/40 border-b border-slate-200/60 dark:border-white/10' : 'bg-transparent'}`}>
+      <header className={`sticky top-0 z-50 transition-all ${scrolled ? 'backdrop-blur-lg bg-slate-900/40 border-b border-white/10' : 'bg-transparent'}`}>
         <div className="container mx-auto px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <div className="w-3 h-3 rounded-full" style={{ background: neonMint }} />
@@ -37,6 +37,7 @@ export default function App() {
 
       <main>
         <Hero />
+        <div className="container mx-auto px-6"><CodeShowcase /></div>
         <PromiseSection />
         <HowItWorks />
         <FeatureGrid />
@@ -46,7 +47,7 @@ export default function App() {
       </main>
 
       <footer className="py-10">
-        <div className="container mx-auto px-6 text-sm text-slate-500">
+        <div className="container mx-auto px-6 text-sm text-slate-400">
           © {new Date().getFullYear()} Vibe2store. All rights reserved.
         </div>
       </footer>
