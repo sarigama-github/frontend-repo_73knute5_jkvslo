@@ -6,20 +6,16 @@ export default defineConfig({
   optimizeDeps: {
     exclude: [],
     entries: ['./src/**/*.{js,jsx,ts,tsx}'],
-    holdUntilCrawlEnd: true,
   },
   server: {
     port: 3000,
     host: '0.0.0.0',
     strictPort: true,
-    // Disable the dev overlay to avoid duplicate custom-element registration from the overlay bundle
     hmr: {
       overlay: false,
-      // Ensure HMR works in HTTPS reverse-proxy previews
       protocol: 'wss',
       clientPort: 443,
     },
-    // Enable file watching so external previews update correctly
     watch: {
       usePolling: true,
       interval: 100,
@@ -28,10 +24,7 @@ export default defineConfig({
       origin: '*',
       credentials: true,
     },
-    allowedHosts: [
-      '.modal.host',
-      'localhost',
-      '127.0.0.1',
-    ],
+    // Allow any host so proxied preview domains work reliably
+    allowedHosts: true,
   },
 })
